@@ -2,6 +2,12 @@ version: '3.9'
 
 services:
   web-server:
+    container_name: "nt-web-server"
     build: .
     ports:
-      - "8000:8000"
+      - "8000:4000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    env_file:
+      - .env

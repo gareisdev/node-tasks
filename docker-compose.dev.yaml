@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  web-server:
+    container_name: "nt-web-server-dev"
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    ports:
+      - "8000:4000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
