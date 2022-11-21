@@ -16,4 +16,19 @@ services:
       - .env
     environment:
       - NODE_ENV=development
+      - MONGO_USER=admin
+      - MONGO_PASSWORD=securepassword
+    depends_on:
+      - mongo-server
     command: npm run dev
+  
+  mongo-server:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=securepassword
+    volumes:
+      - mongo-db-dev-volumne:/data/db
+
+volumes:
+  mongo-db-dev-volumne:
