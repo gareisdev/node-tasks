@@ -10,6 +10,7 @@ const {
   MONGO_PASSWORD,
 } = require("./config/config");
 const { routerTasks } = require("./routers/tasks.routes");
+const { routerUsers } = require("./routers/user.routes");
 
 app.use(express.json());
 
@@ -30,6 +31,7 @@ const connect_db = () => {
 connect_db();
 
 app.use("/api/v1/tasks", routerTasks);
+app.use("/api/v1/users", routerUsers);
 
 app.listen(PORT, () => {
   console.log(`Server listen on port ${PORT}`);
