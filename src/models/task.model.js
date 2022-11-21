@@ -1,35 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: [true, "Task must have a title"]
+        require: [true, "Task must have a title"],
     },
     description: {
         type: String,
-        require: [true, "Task must have a description"]
+        require: [true, "Task must have a description"],
     },
     date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
     isCompleted: {
         type: Boolean,
-        default: false
+        default: false,
     },
     category: {
         type: Array,
-        default: []
+        default: [],
     },
     priority: {
         type: Number,
-        require: [true, "You need to provide a priority for this task"]
+        require: [true, "You need to provide a priority for this task"],
     },
-    ownerUsername: String
+    ownerUsername: String,
 });
 
 const Task = mongoose.model("Task", taskSchema);
 
 module.exports = {
-    Task
-}
+    Task,
+};
